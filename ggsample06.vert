@@ -33,8 +33,6 @@ void main(void)
   vec3 n = normalize((mg * cv).xyz);                // 法線ベクトル
 
   //【宿題】下の１行（の右辺）を置き換えてください
-  // vc = cv;
-  // 追加コード
   vec3 h = normalize(l + v);
   
   vec4 iamb = kamb * lamb;
