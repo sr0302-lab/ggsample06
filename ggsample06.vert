@@ -33,7 +33,17 @@ void main(void)
   vec3 n = normalize((mg * cv).xyz);                // 法線ベクトル
 
   //【宿題】下の１行（の右辺）を置き換えてください
-  vc = cv;
+  // vc = cv;
+  // 追加コード
+  vec3 h = normalize(l + v);
+  
+  vec4 iamb = kamb * lamb;
+  vec4 idiff = max(dot(n, l), 0.0) * kdiff * ldiff;
+  vec4 ispec = pow(max(dot(n, h), 0.0), kshi) * kspec * lspec;
+  
+  vc = iamb + idiff + ispec;
+  vc.a = 1.0;
+  //
 
   gl_Position = mc * pv;
 }
